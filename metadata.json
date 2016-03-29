@@ -61,7 +61,7 @@
   ],
   "name": "echocat-nfs",
   "version": "1.8.1",
-  "source": "git clone https://github.com/echocat/puppet-nfs.git",
+  "source": "https://github.com/echocat/puppet-nfs.git",
   "author": "echocat",
   "license": "Apache-2.0",
   "summary": "Installs and configures NFS server and clients",
