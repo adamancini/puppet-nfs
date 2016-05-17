@@ -31,7 +31,8 @@
 class nfs::client (
   $nfs_v4              = $::nfs::params::nfs_v4,
   $nfs_v4_mount_root   = $::nfs::params::nfs_v4_mount_root,
-  $nfs_v4_idmap_domain = $::nfs::params::nfs_v4_idmap_domain
+  $nfs_v4_idmap_domain = $::nfs::params::nfs_v4_idmap_domain,
+  $mounts              = undef
 ) inherits nfs::params {
 
   validate_bool($nfs_v4)
@@ -48,6 +49,10 @@ class nfs::client (
       nfs_v4              => $nfs_v4,
       nfs_v4_idmap_domain => $nfs_v4_idmap_domain,
     }
+  }
+
+  if $mounts {
+    create_resources(nfs::client::mount, $mounts)
   }
 
 }
