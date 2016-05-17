@@ -466,6 +466,20 @@ Mount root, where we  mount shares, default /srv
 Domain setting for idmapd, must be the same across server
 and clients. Default is to use $::domain fact.
 
+#####`mounts` (optional)
+
+If set, this attribute will be used to construct nfs::client::mount resources.
+You can use you ENC or hiera to provide the hash of nfs::client::mount
+resources definitions:
+
+```hiera
+nfs::client::mounts:
+  /mnt/test:
+    ensure: 'mounted'
+    server: '192.0.2.100'
+    share:  '/export/data'
+```
+
 #####Example
 
 ```puppet
