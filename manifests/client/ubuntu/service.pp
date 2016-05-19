@@ -19,10 +19,12 @@ class nfs::client::ubuntu::service {
   }
 
   if $nfs::client::ubuntu::nfs_v4 {
-    service { 'idmapd':
-      ensure    => running,
-      enable    => true,
-      subscribe => Augeas['/etc/idmapd.conf', '/etc/default/nfs-common'],
+    if versioncmp($::lsbdistrelease, '16.04') < 0 {
+      service { 'idmapd':
+        ensure    => running,
+        enable    => true,
+        subscribe => Augeas['/etc/idmapd.conf', '/etc/default/nfs-common'],
+      }
     }
   } else {
     service { 'idmapd':
