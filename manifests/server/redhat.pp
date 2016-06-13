@@ -20,10 +20,11 @@ class nfs::server::redhat(
 
   if ($mountd_port != undef){
     file_line { 'rpc-mount-options':
-      ensure => present,
-      path   => '/etc/sysconfig/nfs',
-      line   => "MOUNTD_PORT=${mountd_port}",
-      match  => '^#?MOUNTD_PORT';
+      ensure  => present,
+      path    => '/etc/sysconfig/nfs',
+      line    => "MOUNTD_PORT=${mountd_port}",
+      match   => '^#?MOUNTD_PORT',
+      require => Package['nfs-utils'];
     }
 
     if $service_manage {
