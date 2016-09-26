@@ -340,6 +340,10 @@ Set up NFS server and exports. NFSv3 and NFSv4 supported.
 Should this class manage the services behind nfs? Set this to false
 if you are managing the service in another way (e.g. pacemaker).
 
+#####`package_ensure` (installed)
+
+Allow to update or set to a specific version the nfs server packages.
+
 #####`nfs_v4` (optional)
 
 NFSv4 support. Will set up automatic bind mounts to export root.
@@ -451,6 +455,10 @@ Default is `$::clientcert`. Used to specify a other ip/name for the client to co
 Set up NFS client and mounts. NFSv3 and NFSv4 supported.
 
 **Parameters within `nfs::client`:**
+
+#####`package_ensure` (installed)
+
+Allow to update or set to a specific version the nfs client packages.
 
 #####`nfs_v4`
 

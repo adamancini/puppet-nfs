@@ -9,3 +9,5 @@ gem 'facter', facterversion
 gem 'rspec', '< 3.2.0'
 # rubi <1.9 versus rake 11.0.0 workaround
 gem 'rake', '< 11.0.0'
+gem 'json', '~> 1.0', {"platforms"=>["ruby_18", "ruby_19"]}
+gem 'json_pure', '~> 1.0', {"platforms"=>["ruby_18", "ruby_19"]}

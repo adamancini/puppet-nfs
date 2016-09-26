@@ -1,11 +1,11 @@
 class nfs::client::ubuntu::install {
 
   package { 'rpcbind':
-    ensure => installed,
+    ensure => $::nfs::client::package_ensure,
   }
 
   package { ['nfs-common', 'nfs4-acl-tools']:
-    ensure => installed,
+    ensure => $::nfs::client::package_ensure,
   }
 
 }

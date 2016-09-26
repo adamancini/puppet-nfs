@@ -5,6 +5,10 @@
 #
 # === Parameters
 #
+# [package_ensure]
+#   Allow to update or set to a specific version the nfs server packages
+#   Default to installed.
+#
 # [nfs_v4]
 #   NFSv4 support. Will set up automatic bind mounts to export root.
 #   Disabled by default.
@@ -33,6 +37,7 @@
 #  }
 
 class nfs::server (
+  $package_ensure               = $::nfs::params::server_package_ensure,
   $nfs_v4                       = $nfs::params::nfs_v4,
   $nfs_v4_export_root           = $nfs::params::nfs_v4_export_root,
   $nfs_v4_export_root_clients   = $nfs::params::nfs_v4_export_root_clients,
