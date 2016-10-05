@@ -1,11 +1,17 @@
 class nfs::client::ubuntu::service {
 
   case $::lsbdistcodename {
-    'precise' : { $provider = 'upstart' }
-    default   : { $provider = 'debian' }
+    'precise': {
+      $provider = 'upstart'
+      $service_name = 'rpcbind-boot'
+    }
+    default: {
+      $provider = 'debian'
+      $service_name = 'rpcbind'
+    }
   }
 
-  service { 'rpcbind':
+  service { $service_name:
     ensure    => running,
     enable    => true,
     hasstatus => false,
