@@ -4,7 +4,7 @@ class nfs::client::ubuntu::service {
     ensure    => running,
     enable    => true,
     hasstatus => false,
-    provider  => 'init',
+    provider  => 'debian',
   }
 
   if $nfs::client::ubuntu::nfs_v4 {
