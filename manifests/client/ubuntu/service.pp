@@ -4,6 +4,7 @@ class nfs::client::ubuntu::service {
     ensure    => running,
     enable    => true,
     hasstatus => false,
+    provider  => 'init',
   }
 
   if $nfs::client::ubuntu::nfs_v4 {
