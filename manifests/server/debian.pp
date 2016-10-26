@@ -3,7 +3,7 @@ class nfs::server::debian(
   $nfs_v4              = false,
   $nfs_v4_idmap_domain = undef,
   $mountd_port         = undef,
-  $mountd_threads      = 1,
+  $mountd_threads      = 8,
   $service_manage      = true,
 ) {
 
