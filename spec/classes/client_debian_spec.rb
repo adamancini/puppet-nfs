@@ -1,6 +1,10 @@
 require 'spec_helper'
 describe 'nfs::client::debian' do
 
+  let :pre_condition do 
+    'include ::nfs::client::debian' 
+  end
+  
   it do
     should contain_class('nfs::client::debian::install')
     should contain_class('nfs::client::debian::configure')
