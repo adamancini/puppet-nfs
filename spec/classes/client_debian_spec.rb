@@ -1,8 +1,10 @@
 require 'spec_helper'
 describe 'nfs::client::debian' do
-
-  let :pre_condition do 
-    'include ::nfs::client::debian' 
+  let(:facts) do 
+    :osfamily => 'RedHat'
+  end
+  let :pre_condition do
+    'include ::nfs::client' 
   end
   
   it do
