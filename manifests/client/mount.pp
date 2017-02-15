@@ -37,10 +37,10 @@ define nfs::client::mount (
       options  => $options,
       remounts => $remounts,
       atboot   => $atboot,
-      require  => [
-        Nfs::Mkdir[$_nfs4_mount],
-        Class['::nfs::client'],
-      ],
+      # require  => [
+      #   Nfs::Mkdir[$_nfs4_mount],
+      #   Class['::nfs::client'],
+      # ],
     }
 
 
@@ -75,10 +75,10 @@ define nfs::client::mount (
       options  => $options,
       remounts => $remounts,
       atboot   => $atboot,
-      require  => [
-        Nfs::Mkdir[$_mount],
-        Class['::nfs::client'],
-      ],
+      # require  => [
+      #   Nfs::Mkdir[$_mount],
+      #   Class['::nfs::client'],
+      # ],
     }
 
   }
