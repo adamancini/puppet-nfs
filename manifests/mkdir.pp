@@ -7,6 +7,7 @@ define nfs::mkdir (
   exec { "mkdir_recurse_${name}":
     path    => ['/bin', '/usr/bin'],
     command => "mkdir -p ${name}",
+    returns => [ '0', '1' ],
     unless => "test -d ${name}",
   }
 
