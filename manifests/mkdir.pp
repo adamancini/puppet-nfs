@@ -7,7 +7,7 @@ define nfs::mkdir (
   exec { "mkdir_recurse_${name}":
     path    => ['/bin', '/usr/bin'],
     command => "mkdir -p ${name}",
-    creates => $name
+    unless => "test -d ${name}",
   }
 
   file { $name:
